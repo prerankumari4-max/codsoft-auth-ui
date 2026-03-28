@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* phone container */
+.phone {
+  width: 320px;
+  height: 650px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fbc2eb, #a6c1ee);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* top section */
+.top {
+  padding: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+/* card */
+.card {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-radius: 30px 30px 0 0;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+/* headings */
+h2 {
+  margin: 0 0 10px;
+}
+
+p {
+  font-size: 13px;
+  color: gray;
+}
+
+/* input */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* password */
+.password-box {
+  position: relative;
+}
+
+.password-box span {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+}
+
+/* row */
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(90deg, #f093fb, #f5576c);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* social */
+.social {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.icons span {
+  margin: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* switch */
+.switch {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* hidden */
+.hidden {
+  display: none;
+}
+</style>
+
+<body>
+
+<div class="phone">
+
+  <div class="top">← Back</div>
+
+  <!-- LOGIN -->
+  <div class="card" id="login">
+    <h2>Welcome Back</h2>
+    <p>Login to continue your journey</p>
+
+    <input type="email" placeholder="Enter email">
+
+    <div class="password-box">
+      <input type="password" id="loginPass" placeholder="Password">
+      <span onclick="toggle('loginPass')">👁️</span>
+    </div>
+
+    <div class="row">
+      <span><input type="checkbox"> Remember</span>
+      <span>Forgot?</span>
+    </div>
+
+    <button class="btn">Log in</button>
+
+    <div class="social">
+      <p>Sign in with</p>
+      <div class="icons">
+        <span>🌐</span>
+        <span>🟢</span>
+        <span>🍎</span>
+      </div>
+    </div>
+
+    <div class="switch">
+      Don’t have an account? <b onclick="showSignup()">Sign up</b>
+    </div>
+  </div>
+
+  <!-- SIGNUP -->
+  <div class="card hidden" id="signup">
+    <h2>Create Account</h2>
+    <p>Start your journey with us</p>
+
+    <input type="text" placeholder="Full name">
+    <input type="email" placeholder="Email">
+
+    <div class="password-box">
+      <input type="password" id="signPass" placeholder="Password">
+      <span onclick="toggle('signPass')">👁️</span>
+    </div>
+
+    <button class="btn">Get Started</button>
+
+    <div class="social">
+      <p>Sign up with</p>
+      <div class="icons">
+        <span>🌐</span>
+        <span>🟢</span>
+        <span>🍎</span>
+      </div>
+    </div>
+
+    <div class="switch">
+      Already have an account? <b onclick="showLogin()">Log in</b>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggle(id) {
+  let input = document.getElementById(id);
+  input.type = input.type === "password" ? "text" : "password";
+}
+
+function showSignup() {
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("signup").classList.remove("hidden");
+}
+
+function showLogin() {
+  document.getElementById("signup").classList.add("hidden");
+  document.getElementById("login").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
